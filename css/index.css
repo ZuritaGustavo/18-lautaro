@@ -1,0 +1,243 @@
+ {
+    
+}
+
+.hero {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    grid-template-columns: repeat(10,10%);
+    grid-template-rows:repeat(10,10%); 
+    background-color: var(--color-black);
+    overflow: hidden;
+}
+
+.hero__line {
+    grid-column: 1/2;
+    grid-row: 1/7;
+    max-height: fit-content;
+    background-color: var(--color-theme);
+}
+
+.hero__name {   
+    grid-column: 2;
+    grid-row: 10;
+    font-size: 60px;
+    font-family: var(--font-title);
+    color: var(--color-theme);
+    letter-spacing: 5px;
+    transform: rotate(-90deg);
+    margin: 15px;
+}
+
+.hero__number {
+    grid-column-start: 4;
+    grid-row-end: 3;
+}
+.hero__number p{
+    font-size: 580px;
+    font-family: var(--font-number);
+    color: var(--color-theme);
+    transform: rotate(-20deg);
+    letter-spacing: -15px;
+}
+
+.hero__text {
+    grid-column: 4;
+    grid-row: 9;
+    width: 150px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: var(--font-subtitle);
+    color: var(--color-gray);
+    margin: 70px 0 0 10px;
+}
+
+.events {
+    display: grid;
+    height: 100vh;
+}
+
+.countdown {
+    display: grid;
+    height: 60vh;
+    width: 100%;
+    grid-template-columns: repeat(10,10%);
+    grid-template-rows: repeat(10,10%);
+    background-color: var(--color-black);
+    overflow: hidden;
+    /*align-content: center; Antes de existir Events, centraba todo lo de countdown*/
+}
+
+.countdown__title {
+    grid-column: 3/9;
+    grid-row: 2;
+    justify-self: center;
+}
+
+.countdown__title h1{
+    margin-top: 50px;
+}
+
+.countdown__line {
+    grid-column: 3/11;
+    grid-row: 4;
+    height: 5px;
+    max-height: fit-content;
+    background-color: var(--color-theme);
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.countdown__clock {
+    grid-column: 3/9;
+    grid-row: 4;
+    font-family: var(--font-title);
+    color: var(--color-theme);
+    justify-self: center;
+}
+
+.countdown__p {
+    display: flex;
+    flex-direction: row;
+    grid-column: 3/9;
+    grid-row: 6;
+    font-size: 15px;
+    font-family: var(--font-subtitle);
+    color: var(--color-gray);
+    justify-self: center;
+    gap: 10px;
+}
+
+.events {
+    display: grid;
+}
+
+.title {
+    font-size: 60px;
+    font-family: var(--font-title);
+    color: var(--color-gray);
+    letter-spacing: 5px;
+}
+
+.info__icon img{
+    height: 7em;
+}
+
+.misa {
+    display: grid;
+    height: 70vh;
+    width: 100%;
+    grid-template-columns: repeat(10,10%);
+    grid-template-rows: repeat(10,10%);
+    background-color: var(--color-black);
+    overflow: hidden;
+}
+
+.misa__title {
+    grid-column-start: 1;
+    grid-row-start: 6;
+    transform: rotate(-90deg); 
+    margin-left: 35px;
+}
+
+.misa__line {
+    grid-column: 3;
+    grid-row: 3/11;
+    width: 5px;
+    max-height: fit-content;
+    background-color: var(--color-theme);
+    margin-left: 3px;
+}
+
+.misa__info {
+    grid-column: 4/9;
+    grid-row: 3/9;
+    font-family: var(--font-subtitle);
+    font-size: 15px;
+    
+}
+
+.misa__info--icon {
+    height: 30px;
+}
+
+.misa__info div p {
+    margin-top: 20px;
+    color: var(--color-theme);
+}
+
+
+/*seccion fiesta */
+
+.fest {
+    display: grid;
+    height: 70vh;
+    width: 100%;
+    grid-template-columns: repeat(10,10%);
+    grid-template-rows: repeat(10,10%);
+    background-color: var(--color-black);
+    overflow: hidden;
+}
+
+.fest__title {
+    grid-column-start: 1;
+    grid-row-start: 7;
+    transform: rotate(-90deg);
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.fest__line {
+    grid-column: 3;
+    grid-row: 1/8;
+    width: 5px;
+    max-height: fit-content;
+    background-color: var(--color-theme);
+    margin-left: 3px;
+}
+
+.fest__info {
+    grid-column: 4/9;
+    grid-row: 3/9;
+    font-family: var(--font-subtitle);
+    font-size: 15px;
+}
+
+.fest__info--icon {
+    height: 30px;
+}
+
+.fest__info div p {
+    margin-top: 20px;
+    color: var(--color-theme);
+}
+
+button {
+    font-family: var(--font-subtitle);
+    font-size: 12px;
+}
+
+.button__location {
+    height: 35px;
+    width: 130px;
+    background-color: inherit;
+    border: 2px solid var(--color-theme);
+    border-radius: 5px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.button__location img {
+    height: 20px;
+}
+
+.button__location span {
+    text-decoration: none;
+    color: var(--color-theme);
+    
+}
+
+@media 
