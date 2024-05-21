@@ -4,7 +4,7 @@ const inputMensaje = document.getElementById("inputMensaje");
 
 function copyToClipboard() {
   // Obtiene el elemento con el texto a copiar
-  var copyText = document.getElementById("copyText").innerText;
+  var copyText =  document.getElementById("copyText").innerText;
   // Crea un elemento de texto temporal para facilitar la copia
   var tempInput = document.createElement("input");
   tempInput.value = copyText;
@@ -15,10 +15,14 @@ function copyToClipboard() {
   document.execCommand("copy");
   // Remueve el elemento temporal del DOM
   document.body.removeChild(tempInput);
-  // Opcional: Muestra un mensaje de confirmación
-  alert("Texto copiado: " + copyText);
-}
+  // Muestra el mensaje flotante
+  const messageContainer = document.getElementById('copy-message-container');
+  messageContainer.classList.add('show');
 
+  setTimeout(() => {
+    messageContainer.classList.remove('show');
+  }, 2000); // Ajusta la duración del mensaje
+}
 function sendMessage(name, description, phoneNumber) {
   // Verificar que el nombre no esté vacío
   if (!name.trim()) {
@@ -45,7 +49,12 @@ function sendMessage(name, description, phoneNumber) {
   window.open(url, "_blank");
 }
 
+// Ejemplo de uso de la función
+const name = "Juan Perez";
+const description = "Descripción del mensaje";
+const phoneNumber = "591XXXXXXXXX"; // Reemplaza con el número de teléfono real
 
+sendMessage(name, description, phoneNumber);
 
 btnConfirmar.addEventListener("click", function () {
   const nombre = inputNombre.value;
@@ -94,17 +103,3 @@ updateClock();
 // Actualizar el reloj cada segundo
 const timer = setInterval(updateClock, 1000);
 
-
-  let observer = new IntersectionObserver(verificarVisible, {});
-
-  let animate = document.querySelector(".animateElement");
-
-  function verificarVisible(entries) {
-    let entry = entries[0];
-
-    if (entry.isIntersecting) {
-      animate.classList.add("animate__fadeInRight");
-    } else {
-      enimate.classList.remove("animate__fadeInRight");
-    }
-  }
