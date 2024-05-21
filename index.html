@@ -62,7 +62,7 @@
       position: relative;
     }
 
-    .animate {
+      .animate {
       opacity: 0; /* Inicialmente oculto para hacer la animación visible */
       transition: opacity 0.5s ease-in-out; /* Transición para suavizar la visibilidad */
     }
@@ -89,6 +89,22 @@
       }
     }
 
+    .copy-message {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.copy-message.show {
+  opacity: 1;
+}
     .time-section {
       display: inline-block;
       margin: 0 10px;
@@ -405,6 +421,29 @@
     .color-theme{
       color: var(--color-theme);
     }
+  
+#copy-message-container {
+  position: absolute;
+  bottom: 10%; /* Ajusta la posición vertical */
+  right: 0; /* Posiciona horizontalmente en el centro */
+  transform: translate(-50%, -50%); /* Compensa la mitad del ancho y alto */
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  opacity: 0; /* Inicialmente oculto */
+  transition: opacity 0.5s ease-in-out;
+  border-radius: 10%;
+  pointer-events: none; /* Deshabilita la interacción con el mensaje */
+}
+
+#copy-message-container.show {
+  opacity: 1; /* Visible cuando se muestra */
+}
+
+#copy-message-container .message { /* Clase para el contenido del mensaje */
+  font-size: 14px;
+  color: #333;
+}
   </style>
   <body class="bg-fondo w-100 p-0 m-0 object-fit-contain">
     <section class="container hero vh-100 p-0">
@@ -560,7 +599,10 @@
             </button>
             <div class="collapse" id="collapseExample1">
               <div class="d-flex justify-content-around align-items-center">
-              <span class="text-theme me-2 p-1 border-0 rounded-2 fs-4">LAUTAC06.UALA</span>
+              <span id="copyText"class="text-theme me-2 p-1 border-0 rounded-2 fs-4">LAUTAC06.UALA</span>
+              <div id="copy-message-container" class="text-dark">
+                Copiado!
+            </div>
               <span onclick="copyToClipboard()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-copy" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
               </svg></span> 
