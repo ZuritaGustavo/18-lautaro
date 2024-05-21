@@ -49,6 +49,8 @@ function sendMessage(name, description, phoneNumber) {
   window.open(url, "_blank");
 }
 
+// Ejemplo de uso de la función
+
 btnConfirmar.addEventListener("click", function () {
   const nombre = inputNombre.value;
   const mensaje = inputMensaje.value;
@@ -96,3 +98,37 @@ updateClock();
 // Actualizar el reloj cada segundo
 const timer = setInterval(updateClock, 1000);
 
+
+
+const btnConMusica = document.getElementById('btn_modal_musica');
+const btnSinMusica = document.getElementById('btn_modal_sin_musica');
+const linea = document.getElementById('linea');
+const modalFull = new bootstrap.Modal(document.getElementById('modalFull'));
+const numero = document.getElementById('numero');
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  modalFull.show();
+})
+
+btnConMusica.addEventListener('click',()=>{
+  modalFull.hide();
+  playAudio();
+  linea.classList.add('line','animate__bounceInDown');
+})
+
+btnSinMusica.addEventListener('click',()=>{
+  modalFull.hide();
+  linea.classList.add('line','animate__bounceInDown');
+})
+
+
+function playAudio() {
+  var audio = document.getElementById("myAudio");
+  audio.volume = 0.5;
+  audio.play();
+}
+
+function pauseAudio() {
+  var audio = document.getElementById("myAudio");
+  audio.pause();
+}
