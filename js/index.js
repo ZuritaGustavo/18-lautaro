@@ -49,13 +49,6 @@ function sendMessage(name, description, phoneNumber) {
   window.open(url, "_blank");
 }
 
-// Ejemplo de uso de la función
-const name = "Juan Perez";
-const description = "Descripción del mensaje";
-const phoneNumber = "591XXXXXXXXX"; // Reemplaza con el número de teléfono real
-
-sendMessage(name, description, phoneNumber);
-
 btnConfirmar.addEventListener("click", function () {
   const nombre = inputNombre.value;
   const mensaje = inputMensaje.value;
