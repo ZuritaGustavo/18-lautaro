@@ -39,12 +39,52 @@
       border: 0;
     }
 
+    .modal-music-header{
+      background-color: var(--color-black) !important;
+      color: var(--color-white);
+      font-family: var(--font-title);
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: center;
+    }
+    .modal-music-icon{
+      height: 10px;
+      width: auto;
+    }
+    .modal-music-body{
+      background-color: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+    }
+    .btn_modal_musica{
+      font-family: var(--font-subtitle);
+      background-color: var(--color-black);
+      color: var(--color-white);
+      padding: 10px 10px;
+      border-radius: 10px;
+      border: 1px solid #fff!important;
+      width: 50%;
+      margin-bottom: 1rem;
+    }
+    .btn_modal_sin_musica{
+      font-family: var(--font-subtitle);
+      background-color: var(--color-black);
+      color: var(--color-white);
+      border: 1px solid #fff!important;
+      padding: 10px 10px;
+      border-radius: 10px;
+      width: 50%;
+    }
     body {
       margin: 0;
     }
 
     .bg-fondo {
-      background-color: var(--color-black);
+      background-color: var(--color-black)!important;
     }
 
     .bg-theme {
@@ -79,7 +119,7 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: animate-gradient 2.2s ease infinite;
+      animation: animate-gradient 2s ease infinite;
       animation-direction: alternate-reverse;
     }
 
@@ -258,8 +298,6 @@
       right: -2%;
       top: 0;
       font-family: var(--font-number);
-      animation: fadeIn;
-      animation-duration: 2s;
     }
 
     .name {
@@ -274,7 +312,6 @@
     }
 
     .line {
-      height: 90%;
       animation: fadeInDownBig;
       animation-duration: 2s;
     }
@@ -326,18 +363,7 @@
     }
 
     .btn_confirmar {
-      height: 3rem;
-      width: 12rem;
-      border: 2px solid var(--color-theme);
-      border-radius: 10px;
-      background-color: var(--color-black);
-      font-family: var(--font-subtitle);
-      font-size: 0.8rem;
-      color: var(--color-theme);
-      position: absolute;
-      z-index: 3;
-      bottom: 0;
-      /* margin-left: 2%; */
+      margin-bottom: 15px;
     }
 
     
@@ -421,6 +447,7 @@
     .color-theme{
       color: var(--color-theme);
     }
+
   
 #copy-message-container {
   position: absolute;
@@ -444,13 +471,33 @@
   font-size: 14px;
   color: #333;
 }
+
   </style>
   <body class="bg-fondo w-100 p-0 m-0 object-fit-contain">
+<!-- Modal fullscreen -->
+    <div class="modal align-content-center" id="modalFull" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content ">
+          <div class="modal-body modal-music-body bg-fondo">
+            <h2 class="modal-title modal-music-title my-5 text-white">¡BIENVENIDOS!</h5>
+            <button id="btn_modal_musica" class="btn_modal_musica">Ingresar con música</button>
+            <button id="btn_modal_sin_musica" class="btn_modal_sin_musica">Ingresar sin música</button>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- fin modal fullscreen -->
+
+<!-- reproductor -->
+<audio id="myAudio" controls class="d-none" volume="0.3">
+  <source src="./audio/tocoymevoy.mp3" type="audio/mp3">
+</audio>
+<!-- fin reproductor -->
     <section class="container hero vh-100 p-0">
       <div class="row h-75">
-        <div class="col-1 bg-theme line animate__bounceInDown"></div>
+        <div id="linea" class="col-1 bg-theme h-90"></div>
         <div class="col-11 position-relative">
-          <span class="number position-absolute platinum">18</span>
+          <span id="numero"class="number position-absolute platinum">18</span>
         </div>
       </div>
       <div class="row h-25 w-100">
@@ -567,17 +614,11 @@
       </div>
     </section>
     <!--cards-->
-    <section id="info" class="container vh-75 mt-5">
+    <section id="info" class="container vh-100 mt-5">
       <div class="row">
-        <div
-          class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-5"
-        >
+        <div class="col-12 col-xl-4 d-flex justify-content-center align-items-center my-4">
           <div class="card_">
-            <img
-              class="icon_vestimenta"
-              src="./img/icons/vestimenta.png"
-              alt=""
-            />
+            <img class="icon_vestimenta" src="./img/icons/vestimenta.png" alt=""/>
             <h3>Código de Vestimenta</h3>
               <button class="btn btn_card" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 VER
@@ -586,11 +627,8 @@
                 <span class="my-3 text-theme p-1 border-0 rounded-2 fs-4">ELEGANTE-SPORT</span>  
             </div>
           </div>
-          
         </div>
-        <div
-          class="col-12 col-xl-6 d-flex justify-content-center align-items-center my-5 "
-        >
+        <div class="col-12 col-xl-4 d-flex justify-content-center align-items-center  my-4">
           <div class="card_">
             <img class="icon_card" src="./img/icons/regalo.png" alt="" />
             <h3>¿Deseas hacer un regalo?</h3>
@@ -601,7 +639,7 @@
               <div class="d-flex justify-content-around align-items-center">
               <span id="copyText"class="text-theme me-2 p-1 border-0 rounded-2 fs-4">LAUTAC06.UALA</span>
               <div id="copy-message-container" class="text-dark">
-                Copiado!
+                copiado
             </div>
               <span onclick="copyToClipboard()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-copy" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
@@ -610,7 +648,22 @@
           </div>
           </div>
         </div>
+        <div class="col-12 col-xl-4 d-flex justify-content-center align-items-center my-4">
+          <div class="card_">
+            <img class="icon_card" src="./img/icons/check-bg.png" alt=""/>
+    <h3>Confirmar Asistencia</h3>
+    <p>Hasta el 1 de Junio</p>
+      <button type="button"
+      data-bs-target="#confirmar"
+      data-bs-toggle="modal"
+      class="btn btn_card btn_confirmar">
+        CONFIRMAR
+      </button>
       </div>
+</div>
+      </div>
+   
+    
     </section>
     <!--regalo-->
     <section class="container vh-20 mb-5">
@@ -628,16 +681,17 @@
         </div>
       </div>
     </section>
-    <div class="btn_container">
-      <button
+    
+    <!-- <div class="btn_container">
+      <!-- <button
         type="button"
         data-bs-target="#confirmar"
         data-bs-toggle="modal"
         class="btn_confirmar"       
       >
         CONFIRMAR ASISTENCIA
-      </button>
-    </div>
+      </button> 
+    </div> -->
     <section class="container">
       <!-- MODAL UBICACION -->
       <div
@@ -660,7 +714,7 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-cerrarmodal modal-text w-100"
+                class="btn btn-cerrarmodal modal-text  w-100"
                 data-bs-dismiss="modal"
               >
                 Cerrar
@@ -761,10 +815,10 @@
         </div>
       </div>
     </section>
-    <footer class=" bg-dark bg-gradient">
-      <a href="#faltan">Cuenta regresiva</a>
-      <a href="#eventos">Eventos</a>
-      <a href="#info">+ Info</a>
+    <footer class="bg-dark bg-gradient">
+        <a href="#faltan">Cuenta regresiva</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#info">+ Info</a>
     </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
