@@ -106,6 +106,9 @@ const linea = document.getElementById('linea');
 // const modalFull = new bootstrap.Modal(document.getElementById('modalFull'));
 const numero = document.getElementById('numero');
 
+document.addEventListener('DOMContentLoaded', ()=>{
+ linea.classList.add('line','animate__bounceInDown');
+})
 
 
 
